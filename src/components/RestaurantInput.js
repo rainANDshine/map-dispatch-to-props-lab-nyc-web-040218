@@ -50,4 +50,12 @@ export class RestaurantInput extends Component {
   }
 };
 
-export const ConnectedRestaurantInput = connect(null, null)(RestaurantInput)
+const mapDispatchToProps = dispatch => {
+  return {
+    addRestaurant: state => {
+      dispatch(addRestaurant({name: state.name, location: state.location}))
+    }
+  }
+}
+
+export const ConnectedRestaurantInput = connect(null, mapDispatchToProps)(RestaurantInput)
